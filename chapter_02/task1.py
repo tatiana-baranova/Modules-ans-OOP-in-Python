@@ -190,10 +190,29 @@ class Some:
         print("Delete object")
 
 
-obj = Some()
-obj + "new"
-print(obj != 50)
+# obj = Some()
+# obj + "new"
+# print(obj != 50)
 # print(dir(obj))
 
 
+# Самостійна робота
 
+class Rectangle:
+    def __init__(self, width, height):
+        self.width = width
+        self.height = height
+
+    def __add__(self, x):
+        new_width = self.width + x.width
+        new_height = self.height + x.height
+        return Rectangle(new_width, new_height)
+        
+    def __str__(self):
+        return f"{self.width} x {self.height}"
+
+obj1 = Rectangle(8, 2)
+obj2 = Rectangle(10, 6)
+
+result_rect = obj1 + obj2 
+print(f'Result: {result_rect}')
